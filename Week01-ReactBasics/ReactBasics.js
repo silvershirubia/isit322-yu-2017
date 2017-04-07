@@ -8,7 +8,7 @@ export class ReactBasics extends React.Component {
         return (
         <div>
             <h1>An H1 element in a React isit322 Yu Component</h1>
-            <p>More text</p>
+            <p>More text lalalalalal</p>
         </div>)
     }
 }
