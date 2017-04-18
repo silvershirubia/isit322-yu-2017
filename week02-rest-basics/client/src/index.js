@@ -2,8 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
+import Header from './components/Header';
+import SmallNumbers from './components/SmallNumbers';
 
 ReactDOM.render(
-  <App />,
+    <div>
+        <Header />
+        <App />
+        <SmallNumbers />
+    </div>,
   document.getElementById('root')
 );
