@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import 'whatwg-fetch';
 //import mocks from './mocks';
-var fetch = require('./mocks').fetch;
+//var fetch = require('../mocks').fetch;
 
 
 class App extends Component {
@@ -37,7 +37,7 @@ class App extends Component {
 
         const that = this;
 
-        fetch(this, '/api/foo')
+        fetch('/api/foo')
             .then(function(response) {
                 console.log('got response');
                 return response.json();
