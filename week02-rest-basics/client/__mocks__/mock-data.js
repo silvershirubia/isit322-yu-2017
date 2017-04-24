@@ -15,7 +15,7 @@ const getData = (url) => {
                 error: {},
                 response: {},
                 body: JSON.stringify({
-                    login: 'Robin Dudette'
+                    login: 'Silvia'
                 })
             };
 

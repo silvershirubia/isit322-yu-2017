@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 
-import '../App.css';
+import '../css/App.css';
 
 
 class SmallNumbers extends Component {
-    constructor(){
-        super();//always call first
+    constructor(props){
+        super(props);//always call first
         this.state = {
-            nine: '0',
-            eight: '0',
-            seven: '0',
-            six: '0',
-            five: '0',
-            four: '0',
-            three: '0',
-            two: '0',
-            one: '0'
+            nine: props.numbers.nine,
+            eight: props.numbers.eight,
+            seven: props.numbers.seven,
+            six: props.numbers.six,
+            five: props.numbers.five,
+            four: props.numbers.four,
+            three: props.numbers.three,
+            two: props.numbers.two,
+            one: props.numbers.one
 
         };
     }
