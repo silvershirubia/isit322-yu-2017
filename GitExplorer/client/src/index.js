@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import GetUserInfo from './components/GetUserInfo';
 import './css/index.css';
 import Header from './components/Header';
 import SmallNumbers from './components/SmallNumbers';
@@ -10,7 +10,7 @@ import numbersInit from './numbers-data';
 ReactDOM.render(
     <div>
         <Header />
-        <App />
+        <GetUserInfo />
         <GetFoo />
         <SmallNumbers numbers={numbersInit} />
 
