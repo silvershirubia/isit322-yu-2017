@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GetUserInfo from '../components/GetUserInfo';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 describe('My Get User Info Test', function() {
 
@@ -21,11 +21,10 @@ describe('My Get User Info Test', function() {
 
 
     it('renders default login data', () => {
-        const wrapper = shallow(<GetUserInfo />);
+        const wrapper = mount(<GetUserInfo />);
         const nineSign = <p className="App-intro">
-            Log In Name:
-            <input value=""/>
-        </p>;
+ Login: login
+ </p>;
 
         getFirst(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
@@ -33,14 +32,15 @@ describe('My Get User Info Test', function() {
     });
 
     it.only('My Get User Info Test', () => {
-        const wrapper = shallow(<GetUserInfo />);
-        const nineSign = <p className="App-intro">Log In Name: <input value='silvia'/></p>;
+        const wrapper = mount(<GetUserInfo />);
+        const nineSign = <p className="App-intro">
+            Login: Silvia
+        </p>;
 
-        wrapper.find('button#getUser').simulate('click');
+        wrapper.find('button.getUser').simulate('click');
         getFirst(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
 
     });
-
 
 });

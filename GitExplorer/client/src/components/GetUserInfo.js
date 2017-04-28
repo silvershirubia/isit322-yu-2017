@@ -5,6 +5,8 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
+import ShowUserInfo from './ShowUserInfo';
+import fieldDefinitions from '../field-definitions';
 //import mocks from './mocks';
 //var fetch = require('../mocks').fetch;
 
@@ -25,7 +27,7 @@ class GetUserInfo extends Component {
         }
     };
 
-    getUser = () => {
+    fetchUser = () => {
 
         const that = this;
         fetch('/api/user')
@@ -49,28 +51,13 @@ class GetUserInfo extends Component {
         return (
             <div className="App">
 
-                <p className="App-intro">
-                    Log In Name:
-                    <input value={this.state.gitUser.login}/>
-                </p>
-                <p className="App-intro">
-                    Avatar Url:
-                    <input value={this.state.gitUser.avatar_url}/>
-                </p>
-                <p className="App-intro">
-                    Url:
-                    <input value={this.state.gitUser.url}/>
-                </p>
-                <p className="App-intro">
-                    Html Url:
-                    <input value={this.state.gitUser.html_url}/>
-                </p>
-                <p className="App-intro">
-                    Followers Url:
-                    <input value={this.state.gitUser.following_url}/>
-                </p>
+                <ShowUserInfo
+                    fields={fieldDefinitions}
+                    gitUser={this.state.gitUser}
+                    onChange={this.fetchUser}
+                />
 
-                <button id="getUser" onClick={this.getUser} >Get User</button>
+
             </div>//last
         );
     }
