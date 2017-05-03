@@ -6,14 +6,26 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import ElfElements from './ElfElements';
+import Debug from '../elf-logger';
+const logger = new Debug(false);
 
 class ShowUserInfo extends Component {
     constructor(props){
         super(props);//always call first
+        logger.log('ShowUserInfo constructor called.');
+        logger.log('ShowUserInfo props.' + JSON.stringify(this.props.userData, null, 4));
 
         if(!this.props.gitUser){
             throw  new Error('No user data');
         }
+
+        /*
+        const tempGituser = {};
+        for(let field of this.props.fields){
+            tempGituser[field.id] = field.sample;
+        }
+        this.props.gitUser = tempGituser;
+*/
     }
 
     getForm = (field, index) => {

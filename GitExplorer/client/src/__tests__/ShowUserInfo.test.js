@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ShowUserInfo from '../components/ShowUserInfo';
 import { shallow } from 'enzyme';
+import fieldDefinitions from '../field-definitions';
+import elfDebug from '../ElfDebug';
 
 describe('My Get User Info Test', function() {
 
-    let quiet = false;
+    let showData = true;
     let gitUser = {};
 
     beforeEach(function () {
@@ -21,16 +23,17 @@ describe('My Get User Info Test', function() {
     };
 
 
-    fit('renders default login data', () => {
+    it('renders default login data', () => {
         const wrapper = shallow(<ShowUserInfo gitUser={gitUser}
+                                              fields={fieldDefinitions}
                                               onChange={function(){}} />);
-        const nineSign = <p className="App-intro">
-            Login:
+        const nineSign = <label className="ElfFormLabel">
             login
-        </p>;
+        </label>;
 
-        //getFirst(wrapper, 'div');
-        expect(wrapper.contains(nineSign)).toEqual(true);
+        elfDebug(showData).getFirst(wrapper, 'div');
+
+        expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
 
     });
 

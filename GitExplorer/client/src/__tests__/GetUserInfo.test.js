@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GetUserInfo from '../components/GetUserInfo';
 import { mount } from 'enzyme';
+import elfDebug from '../ElfDebug';
+
+const elfDebug = new elfDebug(true);
 
 describe('My Get User Info Test', function() {
 
@@ -10,14 +13,7 @@ describe('My Get User Info Test', function() {
         ReactDOM.render(<GetUserInfo />, div);
     });
 
-    var quiet = false;
-
-    function getFirst(wrapper, element) {
-        const eightp = wrapper.find(element).first().debug();
-        if (!quiet) {
-            console.log("GetUserInfo:", eightp);
-        }
-    }
+    const showData = true;
 
 
     it('renders default login data', () => {
@@ -26,7 +22,8 @@ describe('My Get User Info Test', function() {
  Login: login
  </p>;
 
-        getFirst(wrapper, 'p');
+        elfDebug(showData).getFirst(wrapper, 'p');
+
         expect(wrapper.contains(nineSign)).toEqual(true);
 
     });
@@ -38,7 +35,7 @@ describe('My Get User Info Test', function() {
         </p>;
 
         wrapper.find('button.getUser').simulate('click');
-        getFirst(wrapper, 'p');
+        elfDebug(showData).getFirst(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
 
     });
