@@ -36,6 +36,13 @@ export default class ElfDebug{
         }
     }
 
+    getIndex(wrapper, index){
+        if (this.showData) {
+            const paraData = wrapper.find('form').childAt(index).type().value();
+
+            console.log(paraData);
+        }
+    }
 };
 
 
