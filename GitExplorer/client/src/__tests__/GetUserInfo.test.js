@@ -2,41 +2,38 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GetUserInfo from '../components/GetUserInfo';
 import { mount } from 'enzyme';
-import elfDebug from '../ElfDebug';
+import ElfDebug from '../ElfDebug';
 
-const elfDebug = new elfDebug(true);
+const elfDebug = new ElfDebug(true);
 
 describe('My Get User Info Test', function() {
 
-    it('renders without crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<GetUserInfo />, div);
-    });
-
     const showData = true;
 
+    function  getDefault(id, value) {
+        it('renders default login data', () => {
+            const wrapper = mount(<GetUserInfo />);
+            const nineSign = <p className="ElfFormParagraph" id={id}>{value}</p>;
 
-    it('renders default login data', () => {
+            elfDebug.getIndex(wrapper, 1, true);
+            expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
+        });
+    }
+
+
+    it('My Get User Info Test', () => {
         const wrapper = mount(<GetUserInfo />);
-        const nineSign = <p className="App-intro">
- Login: login
- </p>;
+        const nineSign = <p className="ElfFormParagraph">Silvia</p>;
 
-        elfDebug(showData).getFirst(wrapper, 'p');
+        wrapper.find('button.getUser').simulate('click');
+        elfDebug.getFirst(wrapper, 'p');
 
-        expect(wrapper.contains(nineSign)).toEqual(true);
+        expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
 
     });
 
-    it.only('My Get User Info Test', () => {
-        const wrapper = mount(<GetUserInfo />);
-        const nineSign = <p className="App-intro">
-            Login: Silvia
-        </p>;
-
-        wrapper.find('button.getUser').simulate('click');
-        elfDebug(showData).getFirst(wrapper, 'p');
-        expect(wrapper.contains(nineSign)).toEqual(true);
+    it('renders default login data', () => {
+        getDefault('login', 'login-unknown');
 
     });
 

@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GetUserInfo from './components/GetUserInfo';
+import ElfHeader from "./components/ElfHeader";
 import './css/index.css';
-import Header from './components/Header';
-import SmallNumbers from './components/SmallNumbers';
-import GetFoo from './components/GetFoo';
-import numbersInit from './numbers-data';
+
 
 ReactDOM.render(
     <div>
-        <Header />
-        <GetUserInfo />
-        <GetFoo />
-        <SmallNumbers numbers={numbersInit} />
-
+        <ElfHeader />
     </div>,
   document.getElementById('root')
 );
+/*
+ <GetUserInfo />
+ <GetFoo />
+ <SmallNumbers numbers={numbersInit} />
+
+
+
+ */
