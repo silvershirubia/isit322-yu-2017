@@ -5,6 +5,7 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
+var GitHub = require('github-api');
 
 /* GET home page. */
 router.get('/foo', function(request, response, next) {
@@ -38,5 +39,49 @@ router.get('/user', function(req, res, next) {
     });
 
 });
+
+let getGitHub = function() {
+    let gh;
+    if (true) {
+        gh = new GitHub({
+            token: '728494e07b9a1b4f1d1e3a291ddeeec65e3cd2c5'
+        });
+    } else {
+        gh = new GitHub({
+            username: 'silvershirubia',
+            password: ''
+        });
+    }
+    return gh;
+};
+
+router.get('/gist-test',function (request, response) {
+    // unauthenticated client
+
+    const gh = getGitHub();
+    let gist = gh.getGist(); // not a gist yet
+    gist.create({
+        public: true,
+        description: 'My first gist',
+        files: {
+            "file1.txt": {
+                content: "Aren't gists great!"
+            }
+        }
+    }).then(function({data}) {
+        // Promises!
+        let createdGist = data;
+        return gist.read();
+    }).then(function({data}) {
+        let retrievedGist = data;
+        console.log('Retrieve', retrievedGist);
+        response.status(200).send({'result': retrievedGist});
+        // do interesting things
+    }).catch(function (err) {
+        response.status(500).send({'result': err});
+    });
+
+});
+
 
 module.exports = router;

@@ -5,12 +5,22 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
-import ShowUserInfo from './ShowUserInfo';
+import ElfHeader from './ElfHeader';
 import fieldDefinitions from '../field-definitions';
 import Debug from '../elf-logger';
 const logger = new Debug(false);
 
-class GetUserInfo extends Component {
+import GetUserInfo from './GetUserInfo';
+import SmallNumbers from './SmallNumbers';
+import GetFoo from './GetFoo';
+import numbersInit from '../numbers-data';
+
+import {
+    BrowserRouter as Router,
+    Route
+} from 'react-router-dom';
+
+class DataMaven extends Component {
     constructor(){
         super();
 
@@ -32,13 +42,13 @@ class GetUserInfo extends Component {
 
         this.quiet = true;
         this.debug('GetUserInfo constructor called');
-         */
+    */
     }
 
-    fetchUser = (event) => {
+    fetchGist = (event) => {
 
         const that = this;
-        fetch('/api/user')
+        fetch('/api/gist-test')
             .then(function (response) {
                 // YOU WRITE IT
                 return response.json();
@@ -67,18 +77,31 @@ class GetUserInfo extends Component {
 
     render() {
         return (
-            <div className="App">
-
-                <ShowUserInfo
-                    fields={this.props.fields}
-                    gitUser={this.props.gitUser}
-                    onChange={this.props.onChange}
+        <Router>
+            <div>
+                <ElfHeader/>
+                <Route exact path='/'
+                       render={(props) => (
+                           <GetUserInfo {...props}
+                                        fields={fieldDefinitions}
+                                        gitUser={this.state.gitUser}
+                                        onChange={this.fetchUser}
+                           />
+                       )}
                 />
 
 
-            </div>//last
+                <Route path='/get-foo' component={GetFoo}/>
+                <Route path='/get-numbers'
+                       render={(props) => (
+                           <SmallNumbers {...props}
+                                         numbers={numbersInit}/>
+                       )}
+                />
+            </div>
+        </Router>
         );
     }
 }
 
-export default GetUserInfo;
+export default DataMaven;
