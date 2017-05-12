@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GetUserInfo from '../components/GetUserInfo';
+import DataMaven from '../components/DataMaven';
 import { mount } from 'enzyme';
 import ElfDebug from '../ElfDebug';
 
@@ -12,9 +12,8 @@ describe('My Get User Info Test', function() {
 
     function  getDefault(id, value) {
         it('renders default login data', () => {
-            const wrapper = mount(<GetUserInfo />);
+            const wrapper = mount(<DataMaven />);
             const nineSign = <p className="ElfFormParagraph" id={id}>{value}</p>;
-
             elfDebug.getIndex(wrapper, 1, true);
             expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
         });
@@ -22,7 +21,7 @@ describe('My Get User Info Test', function() {
 
 
     it('My Get User Info Test', () => {
-        const wrapper = mount(<GetUserInfo />);
+        const wrapper = mount(<DataMaven />);
         const nineSign = <p className="ElfFormParagraph">Silvia</p>;
 
         wrapper.find('button.getUser').simulate('click');

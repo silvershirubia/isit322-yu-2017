@@ -6,11 +6,9 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import ShowUserInfo from './ShowUserInfo';
-import fieldDefinitions from '../field-definitions';
-import Debug from '../elf-logger';
-const logger = new Debug(false);
 
 class GetUserInfo extends Component {
+    /*
     constructor(){
         super();
 
@@ -22,17 +20,6 @@ class GetUserInfo extends Component {
             gitUser: tempGitUser
         };
 
-        /*
-        logger.log('GetUserInfo constructor called.')
-
-        super();//always call first
-        this.state = {
-            gitUser: {}
-        };
-
-        this.quiet = true;
-        this.debug('GetUserInfo constructor called');
-         */
     }
 
     fetchUser = (event) => {
@@ -47,24 +34,18 @@ class GetUserInfo extends Component {
             // PARSE THE JSON BODY INTO JS SINCE IT IS PROPABLY A STRING:
 
             logger.log('parsed json', json);
-            var body = JSON.parse(json.body);
+            let body = JSON.parse(json.body);
             that.setState({
                 gitUser: body
             });
-            /*
-                var body = JSON.parse(json.body);
-                that.setState({
-                    gitUser: body
-                });
-                */
 
         }).catch(function (ex) {
             // DISPLAY WITH LOGGER
-            console.log('catch');
+            console.log('catch on gui.js');
         });
         event.preventDefault();
     };
-
+*/
     render() {
         return (
             <div className="App">
