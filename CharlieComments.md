@@ -113,8 +113,8 @@ If you feel this was the wrong commit, let me know.
 
 ## Comment Location
 
-My comments are in your **Week04-Charlie** branch. More specifically, here:
+My comments are in your **Week04-Charlie** branch as are my fixes. More specifically, here are the comments:
 
-
+https://github.com/silvershirubia/isit322-yu-2017/blob/Week04-Charlie/CharlieComments.md
 
 And also attached, but easier to read through the above link to your repository.
