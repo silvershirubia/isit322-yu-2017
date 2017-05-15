@@ -1,3 +1,3 @@
-This is the test of the second file from the GitMerge branch.
+In the master branch.
 
-aslkfjslkdf asdfkj sadf sadfksd sdfakfk jflajsd f
+asksd faslkdf sk falskdf asdkfj sf as silvia lskdjfsf adklf sdf
