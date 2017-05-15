@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ShowUserInfo from '../components/ShowUserInfo';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import fieldDefinitions from '../field-definitions';
 import ElfDebug from '../ElfDebug';
 
@@ -14,20 +14,27 @@ describe('Show User Info Test', function() {
 
     beforeEach(function () {
        gitUser= {
-           login: 'login'
+           login: 'login',
+           username: 'avatar'
        }
 
     });
 
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<ShowUserInfo
+            fields={fieldDefinitions}
+            gitUser={gitUser}
+            onChange={function() {}}
+        />, div);
+    });
+
     it('renders default login data', () => {
-        const wrapper = shallow(<ShowUserInfo gitUser={gitUser}
+        const wrapper = mount(<ShowUserInfo gitUser={gitUser}
                                               fields={fieldDefinitions}
                                               onChange={function(){}} />);
 
-        const nineSign = <label className="ElfFormLabel" id="login">
-            loginName
-            :
-        </label>;
+        const nineSign = <p className="ElfFormParagraph" id="login">login</p>;
 
         elfDebug.getFirst(wrapper, 'div');
 
