@@ -27,8 +27,8 @@ class GetUserInfo extends Component {
         }
     };
 
-    fetchUser = () => {
-
+    fetchUser = (event) => {
+        event.preventDefault();
         const that = this;
         fetch('/api/user')
             .then(function (response) {
