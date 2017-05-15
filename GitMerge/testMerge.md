@@ -1,3 +1,3 @@
-In the master branch.
+Now this is the GitMerge Branch
 
-asksd faslkdf sk falskdf asdkfj sf as silvia lskdjfsf adklf sdf
+Will get rid of this text for now aslkdf sdf adklf sdf
