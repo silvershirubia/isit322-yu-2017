@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ShowUserInfo from '../components/ShowUserInfo';
-import { mount } from 'enzyme';
+import {mount} from 'enzyme';
 import fieldDefinitions from '../field-definitions';
 import ElfDebug from '../ElfDebug';
 
@@ -12,11 +12,11 @@ describe('Show User Info Test', function() {
     let showData = true;
     let gitUser = {};
 
-    beforeEach(function () {
-       gitUser= {
-           login: 'login',
-           username: 'avatar'
-       }
+    beforeEach(function() {
+        gitUser = {
+            login: 'login',
+            username: 'avatar'
+        };
 
     });
 
@@ -25,14 +25,16 @@ describe('Show User Info Test', function() {
         ReactDOM.render(<ShowUserInfo
             fields={fieldDefinitions}
             gitUser={gitUser}
-            onChange={function() {}}
+            onChange={function() {
+            }}
         />, div);
     });
 
     it('renders default login data', () => {
         const wrapper = mount(<ShowUserInfo gitUser={gitUser}
-                                              fields={fieldDefinitions}
-                                              onChange={function(){}} />);
+                                            fields={fieldDefinitions}
+                                            onChange={function() {
+                                            }}/>);
 
         const nineSign = <p className="ElfFormParagraph" id="login">login</p>;
 

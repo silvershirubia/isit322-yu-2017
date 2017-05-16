@@ -5,13 +5,13 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import Logger from '../elf-logger';
-const logger = new Logger('show-new-gist', 'blue', 'yellow', '24px');
+const logger = new Logger('show-md-gist', 'blue', 'yellow', '24px');
 
-class ShowNewGist extends Component {
+class ShowMDGist extends Component {
 
     constructor() {
         super();//always call first
-        logger.log('Get ShowNewGist called');
+        logger.log('Get ShowMDGist called');
     }
 
     render() {
@@ -19,22 +19,22 @@ class ShowNewGist extends Component {
             <div className="App">
 
                 <p className="App-intro">
-                    Url: {this.props.gitGist.url}
+                    FileName: {this.props.gitMDGist.filename}
                 </p>
                 <p className="App-intro">
-                    Created Date: {this.props.gitGist.created_at}
+                    File Type: {this.props.gitMDGist.type}
                 </p>
                 <p className="App-intro">
-                    Description: {this.props.gitGist.description}
+                    Raw Url: {this.props.gitMDGist.raw_url}
                 </p>
                 <p className="App-intro">
-                    Id: {this.props.gitGist.id}
+                    Size: {this.props.gitMDGist.size}
                 </p>
                 <p className="App-intro">
-                    Number of Comments: {this.props.gitGist.comments}
+                    Content: {this.props.gitMDGist.content}
                 </p>
 
-                <button className="getGist" onClick={this.props.fetchGist}>Get Gist</button>
+                <button className="getMDGist" onClick={this.props.fetchMDGist}>Get Markdown Gist</button>
 
             </div>
         );
@@ -42,4 +42,4 @@ class ShowNewGist extends Component {
 
 }
 
-export default ShowNewGist;
+export default ShowMDGist;

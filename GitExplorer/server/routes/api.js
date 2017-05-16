@@ -83,5 +83,38 @@ router.get('/gist-test',function (request, response) {
 
 });
 
+router.get('/gist-second',function (request, response) {
+    // unauthenticated client
+
+    const gh = getGitHub();
+    let gist = gh.getGist(); // not a gist yet
+    gist.create({
+        public: true,
+        description: 'My second gist',
+        files: {
+            "file2.txt": {
+                content: "Aren't additional gists great!"
+            }
+        }
+    }).then(function({data}) {
+        // Promises!
+//console.log("here");
+        let createdGist = data;
+       // console.log(data);
+
+        return gist.read();
+
+    }).then(function({data}) {
+
+        let retrievedGist = data;
+        console.log('Retrieve', retrievedGist);
+        //console.log(data.files);
+        response.status(200).send({'result': retrievedGist});
+        // do interesting things
+    }).catch(function (err) {
+        response.status(500).send({'result': err});
+    });
+
+});
 
 module.exports = router;

@@ -1,0 +1,14 @@
+{
+  "preset": "google",
+  "validateIndentation": 4,
+  "excludeFiles": [
+    "**/node_modules/**",
+    "**/config/**",
+    "**/scripts/**",
+    "**/bower_components/**",
+    "**/field-definitions.js",
+    "**/mock-user-info.js"
+  ],
+  "requireCamelCaseOrUpperCaseIdentifiers": false,
+  "maximumLineLength": 120
+}

@@ -44,6 +44,7 @@ const ElfLogger = class {
         this.logger = loggerInit;
         this.log = this.log.bind(this);
         this.setLogger = this.setLogger.bind(this);
+        this.setQuiet = this.setQuiet.bind(this);
     }
 
     log(message1, message2 = '', message3 = '') {
@@ -60,6 +61,11 @@ const ElfLogger = class {
     setLogger(newValue) {
         this.logger = newValue;
     };
+
+    setQuiet = (newValue) => {
+        this.display = newValue;
+    };
+
 };
 
 export default ElfLogger;
