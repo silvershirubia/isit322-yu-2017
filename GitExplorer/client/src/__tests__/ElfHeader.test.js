@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import ElfHeader from '../components/ElfHeader';
 import { mount } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
-
+import ElfDebug from '../ElfDebug';
+const elfDebug = new ElfDebug(true);
 
 describe('jest test', function() {
 
@@ -16,7 +17,7 @@ describe('jest test', function() {
         const wrapper = mount(<Router><ElfHeader /></Router>);
 
         const welcome = <h2>Welcome to React</h2>;
-        elfDebug.getElement(wrapper, 'h2');
+        elfDebug.getFirst(wrapper, 'h2');
 
         expect(wrapper.contains(welcome)).toEqual(true);
     });

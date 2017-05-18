@@ -44,4 +44,21 @@ describe('Show User Info Test', function() {
 
     });
 
+    function getDefault() {
+        const wrapper = mount(<ShowUserInfo gitUser={gitUser}
+                                            fields={fieldDefinitions}
+                                            onChange={function() {
+                                            }}/>);
+
+        const nineSign = <p className="ElfFormParagraph" id="login">login</p>;
+
+        elfDebug.getFirst(wrapper, 'div');
+
+        expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
+    }
+
+    it('renders default test data', () => {
+        getDefault();
+    });
+
 });

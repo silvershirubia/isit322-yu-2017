@@ -1,44 +1,11 @@
 /**
- * Created by bcuser on 4/11/17.
+ * Created by bcuser on 5/16/17.
  */
 
 var express = require('express');
 var router = express.Router();
 var request = require('request');
 var GitHub = require('github-api');
-
-/* GET home page. */
-router.get('/foo', function(request, response, next) {
-    var message = {
-        'result': 'success',
-        'foo': 'bar',
-        'file': 'api.js'
-    };
-
-    console.log('Foo called on server with message:', message);
-    response.send(message);
-});
-
-// for GitHub
-router.get('/user', function(req, res, next) {
-    var options = {
-        url: 'https://api.github.com/users/silvershirubia',
-        headers: {
-            'User-Agent': 'request'
-        }
-    };
-
-    request(options, function(error, response, body) {
-        // Print the error if one occurred
-        console.log('error:', error);
-        // Print the response status code if a response was received
-        console.log('statusCode:', response && response.statusCode);
-        // Print the HTML for the Google homepage.
-        console.log('body:', body);
-        res.send({error: error, response: response, body: body});
-    });
-
-});
 
 let getGitHub = function() {
     let gh;
@@ -55,7 +22,7 @@ let getGitHub = function() {
     return gh;
 };
 
-router.get('/gist-test', function(request, response) {
+router.get('/gist-test',function (request, response) {
     // unauthenticated client
 
     const gh = getGitHub();
@@ -77,13 +44,13 @@ router.get('/gist-test', function(request, response) {
         console.log('Retrieve', retrievedGist);
         response.status(200).send({'result': retrievedGist});
         // do interesting things
-    }).catch(function(err) {
+    }).catch(function (err) {
         response.status(500).send({'result': err});
     });
 
 });
 
-router.get('/gist-second', function(request, response) {
+router.get('/gist-second',function (request, response) {
     // unauthenticated client
 
     const gh = getGitHub();
@@ -111,35 +78,7 @@ router.get('/gist-second', function(request, response) {
         //console.log(data.files);
         response.status(200).send({'result': retrievedGist});
         // do interesting things
-    }).catch(function(err) {
-        response.status(500).send({'result': err});
-    });
-
-});
-
-router.get('/get-gist-list', function(request, response) {
-
-    const gh = getGitHub();
-    let me = gh.getUser();
-    console.log('ME', me);
-
-    me.listGists(
-    ).then(function({data}) {
-        console.log('USER PROMISE', data);
-        const results = data.map((gist) => (
-            {
-                //Return Object with 4 props
-                url: gist.url,
-                html_url: gist.html_url
-            }
-        ));
-
-        response.status(200).send({
-            'count': results.length,
-            'result': results
-        });
-    }).catch(function(err) {
-        console.log('USER Promise Rejected', err);
+    }).catch(function (err) {
         response.status(500).send({'result': err});
     });
 
