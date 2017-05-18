@@ -7,6 +7,12 @@ var router = express.Router();
 var request = require('request');
 var GitHub = require('github-api');
 
+const Logger = require('../elf-logger');
+const logger = new  Logger('gitapi-gists');
+//const loggerDetails = new ();
+
+
+
 let getGitHub = function() {
     let gh;
     if (true) {

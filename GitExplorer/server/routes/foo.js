@@ -1,14 +1,13 @@
+/**
+ * Created by bcuser on 5/18/17.
+ */
+
 var express = require('express');
 var router = express.Router();
-
-const Logger = require('./elf-logger');
-var logger = new Logger('routes-index');
+var request = require('request');
+var GitHub = require('github-api');
 
 /* GET home page. */
-router.get('/', function(req, res, next) { 'use strict';
-  res.render('index', { title: 'server' });
-});
-
 router.get('/foo', function(request, response, next) {
     var message = {
         'result': 'success',

@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/gitapi/users');
 var api = require('./routes/api');
 // var gitapiGists = ('./routes/gitapi/gists');
 
@@ -18,7 +18,7 @@ app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+//app.use(logger('dev')); // uncomment for more test info to show
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());

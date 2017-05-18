@@ -7,6 +7,9 @@ var router = express.Router();
 var request = require('request');
 var GitHub = require('github-api');
 
+const Logger = require('../routes/elf-logger');
+const logger = new  Logger('test-api');
+
 /* GET home page. */
 router.get('/foo', function(request, response, next) {
     var message = {
@@ -15,7 +18,7 @@ router.get('/foo', function(request, response, next) {
         'file': 'api.js'
     };
 
-    console.log('Foo called on server with message:', message);
+    logger.log('Foo called on server with message:', message);
     response.send(message);
 });
 
@@ -30,11 +33,11 @@ router.get('/user', function(req, res, next) {
 
     request(options, function(error, response, body) {
         // Print the error if one occurred
-        console.log('error:', error);
+        logger.log('error:', error);
         // Print the response status code if a response was received
-        console.log('statusCode:', response && response.statusCode);
+        logger.log('statusCode:', response && response.statusCode);
         // Print the HTML for the Google homepage.
-        console.log('body:', body);
+        logger.log('body:', body);
         res.send({error: error, response: response, body: body});
     });
 
@@ -74,7 +77,7 @@ router.get('/gist-test', function(request, response) {
         return gist.read();
     }).then(function({data}) {
         let retrievedGist = data;
-        console.log('Retrieve', retrievedGist);
+        logger.log('Retrieve', retrievedGist);
         response.status(200).send({'result': retrievedGist});
         // do interesting things
     }).catch(function(err) {
@@ -98,17 +101,17 @@ router.get('/gist-second', function(request, response) {
         }
     }).then(function({data}) {
         // Promises!
-//console.log("here");
+//logger.log("here");
         let createdGist = data;
-        // console.log(data);
+        // logger.log(data);
 
         return gist.read();
 
     }).then(function({data}) {
 
         let retrievedGist = data;
-        console.log('Retrieve', retrievedGist);
-        //console.log(data.files);
+        logger.log('Retrieve', retrievedGist);
+        //logger.log(data.files);
         response.status(200).send({'result': retrievedGist});
         // do interesting things
     }).catch(function(err) {
@@ -121,16 +124,19 @@ router.get('/get-gist-list', function(request, response) {
 
     const gh = getGitHub();
     let me = gh.getUser();
-    console.log('ME', me);
+    logger.log('ME', me);
 
     me.listGists(
     ).then(function({data}) {
-        console.log('USER PROMISE', data);
+        logger.log('USER PROMISE', data);
         const results = data.map((gist) => (
             {
                 //Return Object with 4 props
                 url: gist.url,
-                html_url: gist.html_url
+                html_url: gist.html_url,
+                id: gist.id,
+                description: gist.description,
+                git_pull_url: gist.git_pull_url
             }
         ));
 
@@ -139,7 +145,7 @@ router.get('/get-gist-list', function(request, response) {
             'result': results
         });
     }).catch(function(err) {
-        console.log('USER Promise Rejected', err);
+        logger.log('USER Promise Rejected', err);
         response.status(500).send({'result': err});
     });
 
