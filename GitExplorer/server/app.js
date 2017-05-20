@@ -8,7 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/gitapi/users');
 var api = require('./routes/api');
-// var gitapiGists = ('./routes/gitapi/gists');
+// TODO: you forgot require
+var gitapiGists = require('./routes/gitapi/gists');
 
 var app = express();
 
@@ -27,7 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/api', api);
-// app.use('/gitapi/gist', gitapiGists);
+// TODO gists changed to plural
+app.use('/gitapi/gists', gitapiGists);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) { 'use strict';

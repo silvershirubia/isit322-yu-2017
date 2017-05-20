@@ -119,7 +119,8 @@ class DataMaven extends Component {
 
         logger.log('Fetch gist called');
         const that = this;
-        fetch('/api/gist-second')
+        // TODO: get the URL
+        fetch('/gitapi/gists/gist-second')
             .then(function (response) {
                 // YOU WRITE IT
 console.log('first');
