@@ -108,4 +108,6 @@ https://github.com/silvershirubia/isit322-yu-2017/tree/charlie-midterm
 
 https://github.com/silvershirubia/isit322-yu-2017/blob/charlie-midterm/CharlieCommentsMidterm.md
 
+https://github.com/silvershirubia/isit322-yu-2017/commit/df37f73868b4f2961e4330908b2b13941721376c
+
 And also attached, but easier to read through the above link to your repository.
