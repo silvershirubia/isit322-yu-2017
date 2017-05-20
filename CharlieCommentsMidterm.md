@@ -104,5 +104,8 @@ But I also looked at the commit from the 16th.
 
 My comments are in a file called **CharlieCommentsMidterm** in the **charlie-midterm** branch of your repository:
 
+https://github.com/silvershirubia/isit322-yu-2017/tree/charlie-midterm
+
+https://github.com/silvershirubia/isit322-yu-2017/blob/charlie-midterm/CharlieCommentsMidterm.md
 
 And also attached, but easier to read through the above link to your repository.
