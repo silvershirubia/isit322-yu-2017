@@ -2,7 +2,7 @@
  * Created by bcuser on 4/25/17.
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import ElfHeader from './ElfHeader';
@@ -15,6 +15,7 @@ import GetFoo from './GetFoo';
 import numbersInit from '../numbers-data';
 import ShowNewGist from './ShowNewGist';
 import ShowMDGist from './ShowMDGist';
+import GistLister from './GistLister';
 
 import {
     BrowserRouter as Router,
@@ -22,7 +23,7 @@ import {
 } from 'react-router-dom';
 
 class DataMaven extends Component {
-    constructor(){
+    constructor() {
         super();
 
         const tempGitUser = {};
@@ -31,7 +32,7 @@ class DataMaven extends Component {
         }
         this.state = {
             gitUser: tempGitUser,
-            gitGist:{
+            gitGist: {
                 url: 'url',
                 created_at: 'date',
                 description: 'desc',
@@ -44,35 +45,38 @@ class DataMaven extends Component {
                 raw_url: 'url',
                 size: '0',
                 content: 'stuff'
-            }
+            },
+            gistList:[ {
+                html_url: 'foo'
+            }]
 
-
-        }
+    }
 
         this.fetchUser = this.fetchUser.bind(this);
         this.fetchGist = this.fetchGist.bind(this);
         this.fetchMDGist = this.fetchMDGist.bind(this);
+        this.fetchGistList = this.fetchGistList.bind(this);
 
         logger.log('DataMaven constructor called.')
-         /*
-        super();//always call first
-        this.state = {
-            gitUser: {}
-        };
+        /*
+         super();//always call first
+         this.state = {
+         gitUser: {}
+         };
 
-        this.quiet = true;
-        this.debug('GetUserInfo constructor called');
-    */
+         this.quiet = true;
+         this.debug('GetUserInfo constructor called');
+         */
     }
 
     fetchUser = (event) => {
 
         const that = this;
         fetch('/api/user')
-            .then(function (response) {
+            .then(function(response) {
                 // YOU WRITE IT
                 return response.json();
-            }).then(function (json) {
+            }).then(function(json) {
             // DISPLAY WITH LOGGER AS NEEDED
             // PARSE THE JSON BODY INTO JS SINCE IT IS PROPABLY A STRING:
 
@@ -82,7 +86,7 @@ class DataMaven extends Component {
                 gitUser: body
             });
 
-        }).catch(function (ex) {
+        }).catch(function(ex) {
             // DISPLAY WITH LOGGER
             console.log('catch on gui.js');
         });
@@ -95,10 +99,10 @@ class DataMaven extends Component {
         logger.log('Fetch fist called');
         const that = this;
         fetch('/api/gist-test')
-            .then(function (response) {
+            .then(function(response) {
                 // YOU WRITE IT
                 return response.json();
-            }).then(function (json) {
+            }).then(function(json) {
             // DISPLAY WITH LOGGER AS NEEDED
             // PARSE THE JSON BODY INTO JS SINCE IT IS PROPABLY A STRING:
 
@@ -108,7 +112,7 @@ class DataMaven extends Component {
                 gitGist: body
             });
 
-        }).catch(function (ex) {
+        }).catch(function(ex) {
             // DISPLAY WITH LOGGER
             console.log('catch on dm gist');
         });
@@ -120,73 +124,110 @@ class DataMaven extends Component {
         logger.log('Fetch gist called');
         const that = this;
         fetch('/api/gist-second')
-            .then(function (response) {
+            .then(function(response) {
                 // YOU WRITE IT
-console.log('first');
+                console.log('first');
                 return response.json();
 
-            }).then(function (json) {
+            }).then(function(json) {
             // DISPLAY WITH LOGGER AS NEEDED
             // PARSE THE JSON BODY INTO JS SINCE IT IS PROPABLY A STRING:
-console.log("second" + json);
+            console.log("second" + json);
             logger.log('parsed json', json);
             const body = json.result;
             //let body = JSON.parse(json.result);
-let test = JSON.stringify(body.files["file2.txt"]);
+            let test = JSON.stringify(body.files["file2.txt"]);
             console.log("here" + test);
 
             that.setState({
                 gitMDGist: body.files["file2.txt"]
             });
 
-        }).catch(function (ex) {
+        }).catch(function(ex) {
             // DISPLAY WITH LOGGER
             console.log('catch on mardown gist');
         });
         event.preventDefault();
     };
 
+    fetchGistList = (event) => {
+console.log('enter');
+        logger.log('Fetch fist called');
+        const that = this;
+        fetch('/api/get-gist-list')
+            .then(function(response) {
+                // YOU WRITE IT
+                return response.json();
+            }).then(function(json) {
+            // DISPLAY WITH LOGGER AS NEEDED
+            // PARSE THE JSON BODY INTO JS SINCE IT IS PROPABLY A STRING:
+
+            logger.log('parsed json', json);
+            const body = json.result;
+
+            console.log('here' );
+            that.setState({
+                gistList: body
+            });
+
+        }).catch(function(ex) {
+            // DISPLAY WITH LOGGER
+            logger.log('catch on dm gist list');
+        });
+        event.preventDefault();
+    };
+
     render() {
         return (
-        <Router>
-            <div>
-                <ElfHeader/>
-                <Route exact path='/'
-                       render={(props) => (
-                           <GetUserInfo {...props}
-                                        fields={fieldDefinitions}
-                                        gitUser={this.state.gitUser}
-                                        onChange={this.fetchUser}
-                           />
-                       )}
-                />
+            <Router>
+                <div>
+                    <ElfHeader/>
+                    <Route exact path='/'
+                           render={(props) => (
+                               <GetUserInfo {...props}
+                                            fields={fieldDefinitions}
+                                            gitUser={this.state.gitUser}
+                                            onChange={this.fetchUser}
+                               />
+                           )}
+                    />
 
 
-                <Route path='/get-foo' component={GetFoo}/>
-                <Route path='/show-new-gist'
-                       render={(props) => (
-                           <ShowNewGist {...props}
-                               gitGist={this.state.gitGist}
-                               fetchGist={this.fetchGist}
-                           />
-                       )}
-                />
-                <Route path='/show-sec-gist'
-                       render={(props) => (
-                           <ShowMDGist {...props}
-                                        gitMDGist={this.state.gitMDGist}
-                                        fetchMDGist={this.fetchMDGist}
-                           />
-                       )}
-                />
-                <Route path='/get-numbers'
-                       render={(props) => (
-                           <SmallNumbers {...props}
-                                         numbers={numbersInit}/>
-                       )}
-                />
-            </div>
-        </Router>
+                    <Route path='/get-foo' component={GetFoo}/>
+                    <Route path='/show-new-gist'
+                           render={(props) => (
+                               <ShowNewGist {...props}
+                                            gitGist={this.state.gitGist}
+                                            fetchGist={this.fetchGist}
+                               />
+                           )}
+                    />
+                    <Route path='/show-sec-gist'
+                           render={(props) => (
+                               <ShowMDGist {...props}
+                                           gitMDGist={this.state.gitMDGist}
+                                           fetchMDGist={this.fetchMDGist}
+                               />
+                           )}
+                    />
+                    <Route path='/get-numbers'
+                           render={(props) => (
+                               <SmallNumbers {...props}
+                                             numbers={numbersInit}/>
+                           )}
+                    />
+                    <Route path='/get-gist-list'
+                           render={(props) => (
+                               <GistLister {...props}
+                                           gistList={this.state.gistList}
+                                           fetchGistList={this.fetchGistList}
+                               />
+                           )}
+                    />
+
+
+                </div>
+            </Router>
         );
     }
 }

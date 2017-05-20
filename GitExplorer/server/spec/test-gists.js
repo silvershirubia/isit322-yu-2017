@@ -21,7 +21,7 @@ it('gets the basic gists list', function(done) {
         });
 });
 
-it('checks the gist second response', function(done) {
+it('checks the gist response typeof data', function(done) {
     request(app)
         .get('/api/get-gist-list')// gitapi/gists/get-basic-list
         .expect(200)
@@ -40,7 +40,7 @@ it('checks the gist second response', function(done) {
 });
 
 
-it('checks the gist third response', function(done) {
+it('checks the gist response has field data', function(done) {
     request(app)
         .get('/api/get-gist-list')// gitapi/gists/get-basic-list
         .expect(200)

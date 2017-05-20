@@ -34,7 +34,7 @@ class ShowMDGist extends Component {
                     Content: {this.props.gitMDGist.content}
                 </p>
 
-                <button className="getMDGist" onClick={this.props.fetchMDGist}>Get Markdown Gist</button>
+                <button className="getMDGist" onClick={this.props.fetchMDGist}>Get File Info</button>
 
             </div>
         );

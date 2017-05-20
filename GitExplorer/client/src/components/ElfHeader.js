@@ -18,6 +18,7 @@ class ElfHeader extends Component {
                     <li><Link to="/show-new-gist">Show New Gist</Link></li>
                     <li><Link to="/show-sec-gist">Show Second Gist</Link></li>
                     <li><Link to="/get-numbers">Numbers</Link></li>
+                    <li><Link to='/get-gist-list'>GetGist List</Link></li>
                 </ul>
 
                 <div className="App-header">
