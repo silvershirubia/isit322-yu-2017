@@ -132,11 +132,13 @@ router.get('/get-gist-list', function(request, response) {
         const results = data.map((gist) => (
             {
                 //Return Object with 4 props
-                url: gist.url,
-                html_url: gist.html_url,
-                id: gist.id,
-                description: gist.description,
-                git_pull_url: gist.git_pull_url
+                "url": gist.url,
+                "htmlUrl": gist.html_url,
+                "id": gist.id,
+                "description": gist.description,
+                "gitPullUrl": gist.git_pull_url,
+                "ownerLogin": gist.owner.login,
+                "avatarUrl": gist.owner.avatar_url
             }
         ));
 

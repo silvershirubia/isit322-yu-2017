@@ -23,16 +23,20 @@ const getData = (url) => {
             return {
                 result: [
                     {
-                        html_url: 'https://gist.github.com/a023c7db77926ff58d35087821e12020',
+                        htmlUrl: 'https://gist.github.com/a023c7db77926ff58d35087821e12020',
                         id: 'a023c7db77926ff58d35087821e12020',
-                        git_pull_url: 'https://gist.github.com/a023c7db77926ff58d35087821e12020.git',
-                        description: 'Simple React Component'
+                        gitPullUrl: 'https://gist.github.com/a023c7db77926ff58d35087821e12020.git',
+                        description: 'Simple React Component',
+                        ownerLogin: 'default owner login',
+                        avatarUrl: 'avatar url'
                     },
                     {
-                        html_url: 'https://gist.github.com/17f8ec886c1ae22f66501fc3cbe760ac',
+                        htmlUrl: 'https://gist.github.com/17f8ec886c1ae22f66501fc3cbe760ac',
                         id: '17f8ec886c1ae22f66501fc3cbe760ac',
-                        git_pull_url: 'https://gist.github.com/17f8ec886c1ae22f66501fc3cbe760ac.git',
-                        description: 'React Npm Install'
+                        gitPullUrl: 'https://gist.github.com/17f8ec886c1ae22f66501fc3cbe760ac.git',
+                        description: 'React Npm Install',
+                        ownerLogin: 'default owner login',
+                        avatarUrl: 'avatar url'
                     }
                 ]
             };

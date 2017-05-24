@@ -47,8 +47,14 @@ class DataMaven extends Component {
                 content: 'stuff'
             },
             gistList:[ {
-                html_url: 'foo'
-            }]
+                "htmlUrl": 'foo',
+                "id": '',
+                "gitPullUrl": '',
+                "description": '',
+                "ownerLogin": '',
+                "avatarUrl":''
+            }],
+            gistCanIterate: false
 
     }
 
@@ -167,6 +173,7 @@ console.log('enter');
 
             console.log('here' );
             that.setState({
+                gistCanIterate: true,
                 gistList: body
             });
 
@@ -175,12 +182,15 @@ console.log('enter');
             logger.log('catch on dm gist list');
         });
         event.preventDefault();
+
     };
+
+
 
     render() {
         return (
             <Router>
-                <div>
+                <div className="container">
                     <ElfHeader/>
                     <Route exact path='/'
                            render={(props) => (
@@ -220,6 +230,7 @@ console.log('enter');
                            render={(props) => (
                                <GistLister {...props}
                                            gistList={this.state.gistList}
+                                           gistCanIterate={this.state.gistCanIterate}
                                            fetchGistList={this.fetchGistList}
                                />
                            )}
