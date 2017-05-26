@@ -6,7 +6,8 @@ var logger = new Logger('routes-index');
 
 /* GET home page. */
 router.get('/', function(req, res, next) { 'use strict';
-  res.render('index', { title: 'server' });
+  //res.render('index', { title: 'server' });
+  res.sendFile('index.html');
 });
 
 router.get('/foo', function(request, response, next) {
