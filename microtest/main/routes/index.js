@@ -11,6 +11,10 @@ router.get('/micro-first', function(request, response, next) {
     requester('http://localhost:30026/you-rang').pipe(response);
 });
 
+router.get('/micro-first', function(request, response, next) {
+    requester('http://localhost:30026/foo').pipe(response);
+});
+
 router.get('/micro-second', function(request, response, next) {
     requester('http://localhost:30027/you-rang').pipe(response);
 });

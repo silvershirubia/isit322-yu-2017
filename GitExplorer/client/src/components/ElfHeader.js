@@ -28,26 +28,38 @@ class ElfHeader extends Component {
                         <LinkContainer to='/get-numbers'><NavItem>Get Numbers</NavItem></LinkContainer>
                         <LinkContainer to='/get-foo'><NavItem>Get Foo</NavItem></LinkContainer>
 
-                        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>Action</MenuItem>
-                            <MenuItem eventKey={3.2}>Another action</MenuItem>
-                            <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                            <MenuItem divider />
-                            <MenuItem eventKey={3.3}>Separated link</MenuItem>
-                        </NavDropdown>
+                        /* 1 */
                     </Nav>
-                    <Nav pullRight>
-                        <NavItem eventKey={1} href="#">Link Right</NavItem>
-                        <NavItem eventKey={2} href="#">Link Right</NavItem>
-                    </Nav>
+                    /*
+                    2
+                    */
                 </Navbar.Collapse>
             </Navbar>
         );
+
+
+
         return (
             <div>
                 {navbarInstance}
             </div>
         );
+        /* 1
+         <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+         <MenuItem eventKey={3.1}>Action</MenuItem>
+         <MenuItem eventKey={3.2}>Another action</MenuItem>
+         <MenuItem eventKey={3.3}>Something else here</MenuItem>
+         <MenuItem divider />
+         <MenuItem eventKey={3.3}>Separated link</MenuItem>
+         </NavDropdown>
+         */
+
+        /* 2
+         <Nav pullRight>
+         <NavItem eventKey={1} href="#">Link Right</NavItem>
+         <NavItem eventKey={2} href="#">Link Right</NavItem>
+         </Nav>
+         */
 
         return (
             <div className="App elfMenu">
