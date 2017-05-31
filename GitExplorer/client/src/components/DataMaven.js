@@ -181,10 +181,24 @@ console.log('enter');
             // DISPLAY WITH LOGGER
             logger.log('catch on dm gist list');
         });
-        event.preventDefault();
+        if(event){
+            event.preventDefault();
+        }
 
     };
 
+    gistDelete(param, callback){
+        var url = '/gitapi/gists/delete?gistId=' + param; //
+
+        return fetch(url)
+            .then((res) => res.json())
+            .then((json) => {
+            console.log(json);
+        })
+
+            .catch((ex) => console.log('fetch ex', ex));
+
+    }
 
 
     render() {

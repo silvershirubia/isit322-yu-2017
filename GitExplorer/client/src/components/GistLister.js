@@ -49,6 +49,15 @@ class GistLister extends Component {
 
     }
 
+gistDelete(){
+
+        const id = this.props.gistList[this.state.index].id;
+        this.props.gistDelete(id, () => {
+
+            this.props.fetchGistList();
+        });
+}
+
     render() {
 
         return (
@@ -67,6 +76,10 @@ class GistLister extends Component {
                 <Button id="nextGist"
                         onClick={this.gistIterator}
                         enable={this.props.gistCanIterate}>Next</Button>
+
+                <Button id="deleteGist"
+                        onClick={this.gistDelete}
+                        disable={this.props.gistCanIterate}>Delete</Button>
 
                 <h3>Gist at {this.state.index + 1} / {this.props.gistList.length}</h3>
                 <ul>

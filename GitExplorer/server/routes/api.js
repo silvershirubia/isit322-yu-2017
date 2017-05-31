@@ -153,4 +153,46 @@ router.get('/get-gist-list', function(request, response) {
 
 });
 
+router.get('/delete', function(request, response) {
+
+    const gistId = request.query.gistId;
+
+    const gh = getGitHub();
+    let me = gh.getGist(gistId);
+    logger.log('ME', me);
+
+    me.delete().then(function(data) {
+        response.status(200).send({
+
+        });
+    });
+        /*
+
+
+    ).then(function({data}) {
+        logger.log('USER PROMISE', data);
+        const results = data.map((gist) => (
+            {
+                //Return Object with 4 props
+                "url": gist.url,
+                "htmlUrl": gist.html_url,
+                "id": gist.id,
+                "description": gist.description,
+                "gitPullUrl": gist.git_pull_url,
+                "ownerLogin": gist.owner.login,
+                "avatarUrl": gist.owner.avatar_url
+            }
+        ));
+
+        response.status(200).send({
+            'count': results.length,
+            'result': results
+        });
+    }).catch(function(err) {
+        logger.log('USER Promise Rejected', err);
+        response.status(500).send({'result': err});
+    });
+*/
+});
+
 module.exports = router;
