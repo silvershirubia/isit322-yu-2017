@@ -41,8 +41,6 @@ let DispatchConnect = ({dispatch, statement, kind}) => {
     );
 }
 
-
-
 const mapStateToProps = (state) => {
     return {
         statement: state.statement,

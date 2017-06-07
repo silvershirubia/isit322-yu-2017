@@ -12,6 +12,7 @@ import spokesman from './spokesman';
 import AppNoProps from './AppNoProps';
 import DispatchConnect from './DispatchConnect';
 import AppConnect from './AppConnect';
+import AppConnectMaps from './AppConnectMaps';
 import Connector from './Connector';
 
 let store = createStore(spokesman);
@@ -25,11 +26,15 @@ ReactDOM.render(
                 <AppNoProps />
                 <hr/><hr/>
                 <DispatchConnect/>
-
                 <hr/><hr/>
+                <AppConnectMaps/>
+                <hr/><hr/>
+
                 <Connector/>
                 <hr/><hr/>
                 <FakeRedux />
+                <hr/><hr/>
+                <AppConnect/>
             </div>
         </Provider>
 

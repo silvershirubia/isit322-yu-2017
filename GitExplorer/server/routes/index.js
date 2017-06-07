@@ -14,9 +14,9 @@ router.get('/', function(req, res, next) { 'use strict';
 
 router.get('/foo', function(request, response, next) {
     var message = {
-        'result': 'success',
-        'foo': 'bar',
-        'file': 'api.js'
+        'result': 'server-success',
+        'foo': 'server-bar',
+        'file': 'server-api.js'
     };
 
     console.log('Foo called on server with message:', message);

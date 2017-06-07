@@ -1,90 +1,81 @@
 import React, { Component } from 'react';
 
 import '../css/App.css';
-
+import {connect} from 'react-redux';
 
 class SmallNumbers extends Component {
     constructor(props){
         super(props);//always call first
-        this.state = {
-            nine: props.numbers.nine,
-            eight: props.numbers.eight,
-            seven: props.numbers.seven,
-            six: props.numbers.six,
-            five: props.numbers.five,
-            four: props.numbers.four,
-            three: props.numbers.three,
-            two: props.numbers.two,
-            one: props.numbers.one
 
-        };
+        this.getNine = this.getNine.bind(this);
+        this.getEight = this.getEight.bind(this);
     }
 
     getNine = () => {
-        this.setState({nine: '9'});
+        this.props.dispatch({type: 'NUMBER_NINE'});
     };
 
     getEight = () => {
-        this.setState({eight: '8'});
+        this.props.dispatch({type: 'NUMBER_EIGHT'});
     };
 
     getSeven = () => {
-        this.setState({seven: '7'});
+        this.props.dispatch({type: 'NUMBER_SEVEN'});
     };
 
     getSix = () => {
-        this.setState({six: '6'});
+        this.props.dispatch({type: 'NUMBER_SIX'});
     };
 
     getFive = () => {
-        this.setState({five: '5'});
+        this.props.dispatch({type: 'NUMBER_FIVE'});
     };
 
     getFour = () => {
-        this.setState({four: '4'});
+        this.props.dispatch({type: 'NUMBER_FOUR'});
     };
 
     getThree = () => {
-        this.setState({three: '3'});
+        this.props.dispatch({type: 'NUMBER_THREE'});
     };
 
     getTwo = () => {
-        this.setState({two: '2'});
+        this.props.dispatch({type: 'NUMBER_TWO'});
     };
 
     getOne = () => {
-        this.setState({one: '1'});
+        this.props.dispatch({type: 'NUMBER_ONE'});
     };
 
     render() {
         return (
             <div className="App">
                 <p className="App-intro">
-                    state.nine: {this.state.nine}
+                    state.nine: {this.props.numbers.nine}
                 </p>
                 <p className="App-intro">
-                    state.eight: {this.state.eight}
+                    state.eight: {this.props.numbers.eight}
                 </p>
                 <p className="App-intro">
-                    state.seven: {this.state.seven}
+                    state.seven: {this.props.numbers.seven}
                 </p>
                 <p className="App-intro">
-                    state.six: {this.state.six}
+                    state.six: {this.props.numbers.six}
                 </p>
                 <p className="App-intro">
-                    state.five: {this.state.five}
+                    state.five: {this.props.numbers.five}
                 </p>
                 <p className="App-intro">
-                    state.four: {this.state.four}
+                    state.four: {this.props.numbers.four}
                 </p>
                 <p className="App-intro">
-                    state.three: {this.state.three}
+                    state.three: {this.props.numbers.three}
                 </p>
                 <p className="App-intro">
-                    state.two: {this.state.two}
+                    state.two: {this.props.numbers.two}
                 </p>
                 <p className="App-intro">
-                    state.one: {this.state.one}
+                    state.one: {this.props.numbers.one}
                 </p>
 
                 <button className='getNine' onClick={this.getNine}>Get Nine</button>
@@ -100,5 +91,13 @@ class SmallNumbers extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        numbers: state.numbers
+    };
+};
+
+SmallNumbers = connect(mapStateToProps)(SmallNumbers);
 
 export default SmallNumbers;

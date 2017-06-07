@@ -1,7 +1,7 @@
 import React, {} from 'react';
 import './App.css';
 
-let AppConnect = ({statement, kind, verifyStatement, denyEverything, noComment}) => {
+let AppConnect = ({statement, kind, denyStatement, verifyStatement, noComment}) => {
 
     return (
         <div className="App">
@@ -19,7 +19,7 @@ let AppConnect = ({statement, kind, verifyStatement, denyEverything, noComment})
             <p>{kind}</p>
             <hr />
             <button onClick={verifyStatement}>Verify</button>
-            <button onClick={denyEverything}>Deny</button>
+            <button onClick={denyStatement}>Deny</button>
             <button onClick={noComment}>No Comment</button>
 
         </div>

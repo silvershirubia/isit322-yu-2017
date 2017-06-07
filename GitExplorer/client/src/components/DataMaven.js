@@ -234,12 +234,9 @@ console.log('enter');
                                />
                            )}
                     />
-                    <Route path='/get-numbers'
-                           render={(props) => (
-                               <SmallNumbers {...props}
-                                             numbers={numbersInit}/>
-                           )}
-                    />
+
+                    <Route path='/get-numbers' component={SmallNumbers} />
+
                     <Route path='/get-gist-list'
                            render={(props) => (
                                <GistLister {...props}
@@ -258,3 +255,14 @@ console.log('enter');
 }
 
 export default DataMaven;
+
+/*
+ <Route path='/get-numbers'
+ render={(props) => (
+ <SmallNumbers {...props}
+ numbers={numbersInit}/>
+ )}
+ />
+
+
+ */
