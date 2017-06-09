@@ -1,0 +1,31 @@
+/*
+.elfMenu ul {
+    background-color: #8a6d3b;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.elfMenu li{
+    float: left;
+}
+
+.elfMenu li a {
+    color: white;
+    display: block;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #985f0d;
+}
+*/
+.elfImage{
+    width: 200px;
+    height: 200px;
+}
+
+
