@@ -6,13 +6,13 @@ const requester = new require('request');
 
 /* GET home page. */
 router.get('/', function(req, res, next) { 'use strict';
-  res.render('index', { title: 'micro-first' });
+  res.render('index', { title: 'git socket' });
 });
 
 router.get('/you-rang', function(request, response, next) {
     response.status(200).send({
-        result: 'success from 30026',
-        message: 'I am up and running micro-first'
+        result: 'success from 30034',
+        message: 'I am up and running git socket'
 
     });
 
@@ -20,22 +20,12 @@ router.get('/you-rang', function(request, response, next) {
 
 router.get('/:id', function(request, response) {
     response.send({
-        result: 'success from 30026',
+        result: 'success from 30034',
         path: request.params.id
 
     });
 
 });
 
-router.get('/foo', function(request, response, next) {
-    var message = {
-        'result': 'success',
-        'foo': 'bar',
-        'file': 'api.js'
-    };
-
-    //logger.log('Foo called on server with message:', message);
-    response.send(message);
-});
 
 module.exports = router;

@@ -13,7 +13,14 @@
     "client": "babel-node start-client.js",
     "micro-first": "babel-node ../microtest/micro-first/bin/www",
     "micro-second": "babel-node ../microtest/micro-second/bin/www",
-    "micros": "concurrently 'npm run micro-first' 'npm run micro-second' ",
+    
+    "qux": "babel-node ../microtest/qux/bin/www",
+    "git-user": "babel-node ../microtest/git-user/bin/www",
+    "gist": "babel-node ../microtest/gist/bin/www",
+    "markdown": "babel-node ../microtest/markdown/bin/www",
+    "git-socket": "babel-node ../microtest/git-socket/bin/www",
+    
+    "micros": "concurrently 'npm run micro-first' 'npm run micro-second' 'npm run qux' 'npm run git-user' 'npm run gist' 'npm run markdown' 'npm run git-socket' ",
     "lint": "eslint ."
   },
   "devDependencies": {

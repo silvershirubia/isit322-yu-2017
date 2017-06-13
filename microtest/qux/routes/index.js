@@ -6,13 +6,13 @@ const requester = new require('request');
 
 /* GET home page. */
 router.get('/', function(req, res, next) { 'use strict';
-  res.render('index', { title: 'micro-first' });
+  res.render('index', { title: 'Qux' });
 });
 
 router.get('/you-rang', function(request, response, next) {
     response.status(200).send({
-        result: 'success from 30026',
-        message: 'I am up and running micro-first'
+        result: 'success from 30030',
+        message: 'I am up and running from qux'
 
     });
 
@@ -34,8 +34,17 @@ router.get('/foo', function(request, response, next) {
         'file': 'api.js'
     };
 
-    //logger.log('Foo called on server with message:', message);
     response.send(message);
+});
+
+router.get('/bar', function(request, response, next) {
+    var message = {
+        'result': 'success',
+        'bar': 'for bar but maybe something was suppose to be here',
+        'file': 'api.js'
+    };
+
+    response.status(200).send(message);
 });
 
 module.exports = router;
