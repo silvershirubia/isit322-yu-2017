@@ -27,7 +27,6 @@ const gistReducer = (state = gistState, action) => {
             return Object.assign({}, state, {
                 numbers: {
                     nine: 9,
-                    eight: state.numbers.eight
                 }
             });
         case 'NUMBER_EIGHT':
@@ -64,7 +63,6 @@ const gistReducer = (state = gistState, action) => {
         case 'NUMBER_THREE':
             return Object.assign({}, state, {
                 numbers: {
-                    two: state.numbers.nine,
                     three: 3
                 }
             });
