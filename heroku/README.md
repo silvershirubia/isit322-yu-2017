@@ -1,2 +1,2 @@
-# heroku
+# server
 by Charlie Calvert
