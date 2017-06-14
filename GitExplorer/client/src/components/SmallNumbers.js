@@ -98,6 +98,6 @@ const mapStateToProps = (state) => {
     };
 };
 
-SmallNumbers = connect(mapStateToProps)(SmallNumbers);
+let SmallNumbersMap = connect(mapStateToProps)(SmallNumbers);
 
-export default SmallNumbers;
+export default SmallNumbersMap;

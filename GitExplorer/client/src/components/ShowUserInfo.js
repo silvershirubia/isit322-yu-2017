@@ -37,7 +37,7 @@ class ShowUserInfo extends Component {
                              onChange={this.props.onChange}
                 />
             </div>
-        )
+        );
     };
 
     render() {
@@ -45,7 +45,7 @@ class ShowUserInfo extends Component {
             <div className="App">
                 <form className="Form">{
                     this.props.fields.map((field, index) => {
-                        return this.getForm(field, index)
+                        return this.getForm(field, index);
                     })
                 }
 

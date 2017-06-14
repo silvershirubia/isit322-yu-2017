@@ -60,7 +60,7 @@ const ElfLogger = class {
 
     setLogger(newValue) {
         this.logger = newValue;
-    };
+    }
 
     setQuiet = (newValue) => {
         this.display = newValue;

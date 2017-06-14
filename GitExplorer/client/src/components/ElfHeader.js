@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import logo from '../images/pk.svg';
+//import logo from '../images/pk.svg';
 
-import {Jumbotron} from 'react-bootstrap';
-import { MenuItem, Nav, Navbar, NavDropdown, NavItem   } from 'react-bootstrap';
+//import {Jumbotron} from 'react-bootstrap';
+import { Nav, Navbar, NavItem  } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 import '../css/App.css';
@@ -44,7 +44,7 @@ class ElfHeader extends Component {
                 {navbarInstance}
             </div>
         );
-        /* 1
+         /* 1
          <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
          <MenuItem eventKey={3.1}>Action</MenuItem>
          <MenuItem eventKey={3.2}>Another action</MenuItem>
@@ -59,19 +59,20 @@ class ElfHeader extends Component {
          <NavItem eventKey={1} href="#">Link Right</NavItem>
          <NavItem eventKey={2} href="#">Link Right</NavItem>
          </Nav>
-         */
+
 
         return (
             <div className="App elfMenu">
                 {navbarInstance}
 
                 <Jumbotron>
-                    <img src={logo} className="App-logo" alt="logo"/>
+                             <img src={logo} className="App-logo" alt="logo"/>
                     <h2>Welcome to React</h2>
                 </Jumbotron>
 
             </div>
         );
+    */
     }
 }
 

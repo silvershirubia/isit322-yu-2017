@@ -61,4 +61,4 @@ class ElfElements extends Component {
     }
 }
 
-export default ElfElements
+export default ElfElements;

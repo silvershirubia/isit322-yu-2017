@@ -64,28 +64,6 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-/*
+let GetFooMap = connect(mapStateToProps, mapDispatchToProps)(GetFoo);
 
- getFoo = () => {
- console.log('GetFoo is called');
-
- const that = this;
-
- fetch('/api/foo')
- .then(function(response) {
- that.debug('GETONE-FETCH-ONE');
- return response.json();
- }).then(function(json) {
- that.debug('GETONE-FETCH-TWO');
- that.debug('parsed json', json);
- that.setState(foo => (json));
- }).catch(function(ex) {
- console.log('elf parsing failed', ex);
- });
- };
-
- */
-
-GetFoo = connect(mapStateToProps, mapDispatchToProps)(GetFoo);
-
-export default GetFoo;
+export default GetFooMap;

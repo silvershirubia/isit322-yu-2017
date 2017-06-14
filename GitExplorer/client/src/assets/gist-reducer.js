@@ -15,7 +15,7 @@ const gistState = {
         two: 0,
         one: 0
     },
-    getFoo:{
+    getFoo: {
         foo: 'foo',
         file: 'api.js'
     }

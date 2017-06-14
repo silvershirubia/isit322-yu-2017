@@ -39,4 +39,4 @@ export default [
         type: types[DEFAULT],
         sample: 'followersUrl' + unknown
     }
-]
+];

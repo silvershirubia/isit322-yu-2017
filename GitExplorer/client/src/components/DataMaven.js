@@ -12,7 +12,7 @@ const logger = new Logger('show-new-gist', 'blue', 'yellow', '24px');
 import GetUserInfo from './GetUserInfo';
 import SmallNumbers from './SmallNumbers';
 import GetFoo from './GetFoo';
-import numbersInit from '../numbers-data';
+//import numbersInit from '../numbers-data';
 import ShowNewGist from './ShowNewGist';
 import ShowMDGist from './ShowMDGist';
 import GistLister from './GistLister';
@@ -56,23 +56,15 @@ class DataMaven extends Component {
             }],
             gistCanIterate: false
 
-    }
+    };
 
         this.fetchUser = this.fetchUser.bind(this);
         this.fetchGist = this.fetchGist.bind(this);
         this.fetchMDGist = this.fetchMDGist.bind(this);
         this.fetchGistList = this.fetchGistList.bind(this);
 
-        logger.log('DataMaven constructor called.')
-        /*
-         super();//always call first
-         this.state = {
-         gitUser: {}
-         };
+        logger.log('DataMaven constructor called.');
 
-         this.quiet = true;
-         this.debug('GetUserInfo constructor called');
-         */
     }
 
     fetchUser = (event) => {

@@ -33,7 +33,7 @@ class GistLister extends Component {
                 if (prevState.index < props.gistList.length - 1) {
                     return {
                         index: prevState.index + 1
-                    }
+                    };
                 }
 
             });
@@ -42,7 +42,7 @@ class GistLister extends Component {
                 if (prevState.index !== 0) {
                     return {
                         index: prevState.index - 1
-                    }
+                    };
                 }
             });
         }
