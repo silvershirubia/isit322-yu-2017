@@ -12,6 +12,12 @@ router.get('/', function(req, res, next) { 'use strict';
   res.sendFile('index.html');
 });
 
+const microIndex = 0;
+
+let micro = [
+    'http://localhost:30027'
+];
+
 router.get('/foo', function(request, response, next) {
     var message = {
         'result': 'server-success',
