@@ -5,7 +5,7 @@
     "react/jsx-uses-vars": "warn",
     "react/react-in-jsx-scope": "error",
     "no-console": "off",
-    "indent": "warn",
+    "indent": "off",
     "quotes": ["error", "single"],
     "linebreak-style": ["error", "unix"],
     "semi": ["error", "always"]

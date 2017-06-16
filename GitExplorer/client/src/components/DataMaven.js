@@ -180,19 +180,21 @@ console.log('enter');
 
     };
 
-    gistDelete(param, callback){
-        var url = '/gitapi/gists/delete?gistId=' + param; //
+    gistDelete = (param, callback) => {
+        //var url = '/gitapi/gists/delete?gistId=' + param;
+
+        var url = '/api/delete?gistId=' + param;
 
         return fetch(url)
             .then((res) => res.json())
             .then((json) => {
             console.log(json);
+            callback(json);
         })
 
             .catch((ex) => console.log('fetch ex', ex));
 
-    }
-
+    };
 
     render() {
         return (
@@ -236,6 +238,7 @@ console.log('enter');
                                            gistList={this.state.gistList}
                                            gistCanIterate={this.state.gistCanIterate}
                                            fetchGistList={this.fetchGistList}
+                                           gistDelete={this.gistDelete}
                                />
                            )}
                     />

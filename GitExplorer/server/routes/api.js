@@ -156,17 +156,19 @@ router.get('/get-gist-list', function(request, response) {
 router.get('/delete', function(request, response) {
 
     const gistId = request.query.gistId;
-
+ console.log(gistId);
     const gh = getGitHub();
     let me = gh.getGist(gistId);
+
     logger.log('ME', me);
 
     me.delete().then(function(data) {
         response.status(200).send({
-
+            'result': 'success',
+            gistId: gistId,
+            data: data
         });
     });
 });
-
 
 module.exports = router;

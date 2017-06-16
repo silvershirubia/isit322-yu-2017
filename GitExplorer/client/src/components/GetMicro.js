@@ -17,7 +17,7 @@ class GetMicro extends Component {
             message: 'the message'
         };
     }
-
+//
     render() {
         return (
             <div className="App">
@@ -42,7 +42,7 @@ class GetMicro extends Component {
     }
 
 }
-
+//
 const mapStateToProps = (state) => {
     return {
         result: state.getMicro.result,
@@ -70,7 +70,7 @@ const mapDispatchToProps = (dispatch) => {
         }
     };
 };
-
+//
 let GetMicroMap = connect(mapStateToProps, mapDispatchToProps)(GetMicro);
 
 export default GetMicroMap;
