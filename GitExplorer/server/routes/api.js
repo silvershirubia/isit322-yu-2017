@@ -10,18 +10,6 @@ var GitHub = require('github-api');
 const Logger = require('../routes/elf-logger');
 const logger = new  Logger('test-api');
 
-/* GET home page.
-router.get('/foo', function(request, response, next) {
-    var message = {
-        'result': 'success',
-        'foo': 'bar ya',
-        'file': 'api.js'
-    };
-
-    logger.log('Foo called on server with message:', message);
-    response.send(message);
-});
-*/
 // for GitHub
 router.get('/user', function(req, res, next) {
     var options = {
