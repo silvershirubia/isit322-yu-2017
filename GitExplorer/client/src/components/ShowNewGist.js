@@ -18,6 +18,8 @@ class ShowNewGist extends Component {
         return (
             <div className="App">
 
+                <button className="getGist" onClick={this.props.fetchGist}>Get Gist</button>
+
                 <p className="App-intro">
                     Url: {this.props.gitGist.url}
                 </p>
@@ -33,8 +35,6 @@ class ShowNewGist extends Component {
                 <p className="App-intro">
                     Number of Comments: {this.props.gitGist.comments}
                 </p>
-
-                <button className="getGist" onClick={this.props.fetchGist}>Get Gist</button>
 
             </div>
         );

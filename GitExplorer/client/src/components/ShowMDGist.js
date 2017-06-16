@@ -18,6 +18,8 @@ class ShowMDGist extends Component {
         return (
             <div className="App">
 
+                <button className="getMDGist" onClick={this.props.fetchMDGist}>Get File Info</button>
+
                 <p className="App-intro">
                     FileName: {this.props.gitMDGist.filename}
                 </p>
@@ -33,8 +35,6 @@ class ShowMDGist extends Component {
                 <p className="App-intro">
                     Content: {this.props.gitMDGist.content}
                 </p>
-
-                <button className="getMDGist" onClick={this.props.fetchMDGist}>Get File Info</button>
 
             </div>
         );

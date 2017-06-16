@@ -9,6 +9,7 @@ class SmallNumbers extends Component {
 
         this.getNine = this.getNine.bind(this);
         this.getEight = this.getEight.bind(this);
+        this.getSeven = this.getSeven.bind(this);
     }
 
     getNine = () => {
@@ -50,6 +51,17 @@ class SmallNumbers extends Component {
     render() {
         return (
             <div className="App">
+
+                <button className='getNine' onClick={this.getNine}>Get Nine</button>
+                <button className='getEight' onClick={this.getEight}>Get Eight</button>
+                <button className='getSeven' onClick={this.getSeven}>Get Seven</button>
+                <button className='getSix' onClick={this.getSix}>Get Six</button>
+                <button className='getFive' onClick={this.getFive}>Get Five</button>
+                <button className='getFour' onClick={this.getFour}>Get Four</button>
+                <button className='getThree' onClick={this.getThree}>Get Three</button>
+                <button className='getTwo' onClick={this.getTwo}>Get Two</button>
+                <button className='getOne' onClick={this.getOne}>Get One</button>
+
                 <p className="App-intro">
                     state.nine: {this.props.numbers.nine}
                 </p>
@@ -78,15 +90,6 @@ class SmallNumbers extends Component {
                     state.one: {this.props.numbers.one}
                 </p>
 
-                <button className='getNine' onClick={this.getNine}>Get Nine</button>
-                <button className='getEight' onClick={this.getEight}>Get Eight</button>
-                <button className='getSeven' onClick={this.getSeven}>Get Seven</button>
-                <button className='getSix' onClick={this.getSix}>Get Six</button>
-                <button className='getFive' onClick={this.getFive}>Get Five</button>
-                <button className='getFour' onClick={this.getFour}>Get Four</button>
-                <button className='getThree' onClick={this.getThree}>Get Three</button>
-                <button className='getTwo' onClick={this.getTwo}>Get Two</button>
-                <button className='getOne' onClick={this.getOne}>Get One</button>
             </div>
         );
     }

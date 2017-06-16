@@ -12,6 +12,7 @@ const logger = new Logger('show-new-gist', 'blue', 'yellow', '24px');
 import GetUserInfo from './GetUserInfo';
 import SmallNumbers from './SmallNumbers';
 import GetFoo from './GetFoo';
+import GetMicro from './GetMicro';
 //import numbersInit from '../numbers-data';
 import ShowNewGist from './ShowNewGist';
 import ShowMDGist from './ShowMDGist';
@@ -239,6 +240,7 @@ console.log('enter');
                            )}
                     />
 
+                    <Route path='/get-micro' component={GetMicro}/>
 
                 </div>
             </Router>
@@ -247,14 +249,3 @@ console.log('enter');
 }
 
 export default DataMaven;
-
-/*
- <Route path='/get-numbers'
- render={(props) => (
- <SmallNumbers {...props}
- numbers={numbersInit}/>
- )}
- />
-
-
- */

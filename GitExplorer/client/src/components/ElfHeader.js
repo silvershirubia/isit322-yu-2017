@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-//import logo from '../images/pk.svg';
+import logo from '../images/pk.svg';
 
 //import {Jumbotron} from 'react-bootstrap';
 import { Nav, Navbar, NavItem  } from 'react-bootstrap';
@@ -27,12 +27,8 @@ class ElfHeader extends Component {
                         <LinkContainer to='/show-sec-gist'><NavItem>Show Second Gist Info</NavItem></LinkContainer>
                         <LinkContainer to='/get-numbers'><NavItem>Get Numbers</NavItem></LinkContainer>
                         <LinkContainer to='/get-foo'><NavItem>Get Foo</NavItem></LinkContainer>
-
-                        /* 1 */
+                        <LinkContainer to='/get-micro'><NavItem>Get Micro</NavItem></LinkContainer>
                     </Nav>
-                    /*
-                    2
-                    */
                 </Navbar.Collapse>
             </Navbar>
         );
@@ -40,39 +36,11 @@ class ElfHeader extends Component {
 
 
         return (
-            <div>
+            <div className="App">
+                <img src={logo} className="App-logo" alt="logo"/>
                 {navbarInstance}
             </div>
         );
-         /* 1
-         <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-         <MenuItem eventKey={3.1}>Action</MenuItem>
-         <MenuItem eventKey={3.2}>Another action</MenuItem>
-         <MenuItem eventKey={3.3}>Something else here</MenuItem>
-         <MenuItem divider />
-         <MenuItem eventKey={3.3}>Separated link</MenuItem>
-         </NavDropdown>
-         */
-
-        /* 2
-         <Nav pullRight>
-         <NavItem eventKey={1} href="#">Link Right</NavItem>
-         <NavItem eventKey={2} href="#">Link Right</NavItem>
-         </Nav>
-
-
-        return (
-            <div className="App elfMenu">
-                {navbarInstance}
-
-                <Jumbotron>
-                             <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to React</h2>
-                </Jumbotron>
-
-            </div>
-        );
-    */
     }
 }
 

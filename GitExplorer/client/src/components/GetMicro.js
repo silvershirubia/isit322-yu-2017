@@ -8,13 +8,13 @@ import '../css/App.css';
 import {connect} from 'react-redux';
 
 
-class GetFoo extends Component {
+class GetMicro extends Component {
 
     constructor() {
         super();//always call first
         this.state = {
-            foo: 'start foo',
-            file: 'file start'
+            result: 'start result',
+            message: 'the message'
         };
 
     }
@@ -22,12 +22,15 @@ class GetFoo extends Component {
     render() {
         return (
             <div className="App">
-                <button className="getFoo" onClick={this.props.getFoo}>Get Foo</button>
+                <h2>You Rang?</h2>
+                <button className="getMicro" id="getMicroQux" onClick={this.props.getMicro}>You Rang Qux</button>
+                <button className="getMicro" id="getMicroGit" onClick={this.props.getMicro}>You Rang Git</button>
+
                 <p className="App-intro">
-                    state.foo: {this.props.foo}
+                    state.result: {this.props.result}
                 </p>
                 <p className="App-intro">
-                    state.file: {this.props.file}
+                    state.message: {this.props.message}
                 </p>
 
             </div>
@@ -38,21 +41,23 @@ class GetFoo extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        foo: state.getFoo.foo,
-        file: state.getFoo.file
+        result: state.getMicro.result,
+        message: state.getMicro.message
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getFoo: () => {
-            fetch('/foo')
+        getMicro: (event) => {
+            console.log('BUTTON', event.target.id);
+            
+            fetch('/you-rang' )
                 .then(function(response) {
                     return response.json();
                 }).then(function(json) {
                 dispatch({
-                    type: 'GETFOO',
-                    getFoo: json
+                    type: 'YOU-RANG',
+                    getMicro: json
                 });
             }).catch(function(ex) {
                 console.log('parsing failed', ex);
@@ -62,6 +67,6 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-let GetFooMap = connect(mapStateToProps, mapDispatchToProps)(GetFoo);
+let GetMicroMap = connect(mapStateToProps, mapDispatchToProps)(GetMicro);
 
-export default GetFooMap;
+export default GetMicroMap;

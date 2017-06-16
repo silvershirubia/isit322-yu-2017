@@ -10,18 +10,18 @@ var GitHub = require('github-api');
 const Logger = require('../routes/elf-logger');
 const logger = new  Logger('test-api');
 
-/* GET home page. */
+/* GET home page.
 router.get('/foo', function(request, response, next) {
     var message = {
         'result': 'success',
-        'foo': 'bar',
+        'foo': 'bar ya',
         'file': 'api.js'
     };
 
     logger.log('Foo called on server with message:', message);
     response.send(message);
 });
-
+*/
 // for GitHub
 router.get('/user', function(req, res, next) {
     var options = {
@@ -166,33 +166,7 @@ router.get('/delete', function(request, response) {
 
         });
     });
-        /*
-
-
-    ).then(function({data}) {
-        logger.log('USER PROMISE', data);
-        const results = data.map((gist) => (
-            {
-                //Return Object with 4 props
-                "url": gist.url,
-                "htmlUrl": gist.html_url,
-                "id": gist.id,
-                "description": gist.description,
-                "gitPullUrl": gist.git_pull_url,
-                "ownerLogin": gist.owner.login,
-                "avatarUrl": gist.owner.avatar_url
-            }
-        ));
-
-        response.status(200).send({
-            'count': results.length,
-            'result': results
-        });
-    }).catch(function(err) {
-        logger.log('USER Promise Rejected', err);
-        response.status(500).send({'result': err});
-    });
-*/
 });
+
 
 module.exports = router;

@@ -18,14 +18,6 @@ class ShowUserInfo extends Component {
         if(!this.props.gitUser){
             throw  new Error('No user data');
         }
-
-        /*
-        const tempGituser = {};
-        for(let field of this.props.fields){
-            tempGituser[field.id] = field.sample;
-        }
-        this.props.gitUser = tempGituser;
-*/
     }
 
     getForm = (field, index) => {
@@ -43,14 +35,16 @@ class ShowUserInfo extends Component {
     render() {
         return (
             <div className="App">
-                <form className="Form">{
+                <form className="Form">
+
+                    <button className="getUser"
+                            onClick={this.props.onChange} >Get User</button>
+                    {
                     this.props.fields.map((field, index) => {
                         return this.getForm(field, index);
                     })
                 }
 
-                <button className="getUser"
-                        onClick={this.props.onChange} >Get User</button>
                 </form>
             </div>//last
         );

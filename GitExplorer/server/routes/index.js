@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) { 'use strict';
 });
 
 const microIndex = 0;
+const address = '168.156.47.142';
 
 let micro = [
     'http://localhost:30027'
@@ -21,7 +22,7 @@ let micro = [
 router.get('/foo', function(request, response, next) {
     var message = {
         'result': 'server-success',
-        'foo': 'server-bar',
+        'foo': 'server-bar yay via server',
         'file': 'server-api.js'
     };
 
@@ -29,9 +30,10 @@ router.get('/foo', function(request, response, next) {
     response.send(message);
 });
 
-router.get('/foo', function(request, response, next){
-    requester('http://localhost:30026/foo').pipe(response);
+router.get('/you-rang', function(request, response, next){
 
+    requester('http://' + address + ':30030/you-rang').pipe(response);
+    console.log('You calling from IP: ', address);
 });
 
 module.exports = router;

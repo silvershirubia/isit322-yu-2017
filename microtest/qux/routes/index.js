@@ -20,7 +20,7 @@ router.get('/you-rang', function(request, response, next) {
 
 router.get('/:id', function(request, response) {
     response.send({
-        result: 'success from 30026',
+        result: 'success from 30030',
         path: request.params.id
 
     });

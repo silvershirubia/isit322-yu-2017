@@ -16,9 +16,14 @@ const gistState = {
         one: 0
     },
     getFoo: {
-        foo: 'foo',
+        foo: 'foo in cl',
         file: 'api.js'
+    },
+    getMicro: {
+        result: 'mi in cl',
+        message: 'api.js'
     }
+
 };
 
 const gistReducer = (state = gistState, action) => {
@@ -84,6 +89,11 @@ const gistReducer = (state = gistState, action) => {
                 getFoo: action.getFoo
             });
 
+        case 'YOU-RANG':
+            return Object.assign({}, state, {
+                getMicro: action.getMicro,
+                //url: action.Button.name
+            });
 
         default:
             return state;
