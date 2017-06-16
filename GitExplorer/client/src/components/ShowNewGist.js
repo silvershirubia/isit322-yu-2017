@@ -18,7 +18,7 @@ class ShowNewGist extends Component {
         return (
             <div className="App">
 
-                <button className="getGist" onClick={this.props.fetchGist}>Get Gist</button>
+                <button className="getGist" onClick={this.props.fetchGist}>Create and Get the Gist</button>
 
                 <p className="App-intro">
                     Url: {this.props.gitGist.url}

@@ -52,9 +52,7 @@ class GistLister extends Component {
     }
 
     refresh() {
-        this
-            .props
-            .fetchGistList();
+        this.props.fetchGistList();
 
     }
 
