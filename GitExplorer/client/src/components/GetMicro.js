@@ -16,15 +16,19 @@ class GetMicro extends Component {
             result: 'start result',
             message: 'the message'
         };
-
     }
 
     render() {
         return (
             <div className="App">
                 <h2>You Rang?</h2>
-                <button className="getMicro" id="getMicroQux" onClick={this.props.getMicro}>You Rang Qux</button>
-                <button className="getMicro" id="getMicroGit" onClick={this.props.getMicro}>You Rang Git</button>
+                <button className="getMicro" id="you-rang-qux" onClick={this.props.getMicro}>You Rang Qux</button>
+                <button className="getMicro" id="you-rang-git" onClick={this.props.getMicro}>You Rang Git</button>
+                <button className="getMicro" id="you-rang-gist" onClick={this.props.getMicro}>You Rang Gist</button>
+                <button className="getMicro" id="you-rang-markdown" onClick={this.props.getMicro}>You Rang Markdown
+                </button>
+                <button className="getMicro" id="you-rang-socket" onClick={this.props.getMicro}>You Rang Git-Socket
+                </button>
 
                 <p className="App-intro">
                     state.result: {this.props.result}
@@ -49,9 +53,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getMicro: (event) => {
-            console.log('BUTTON', event.target.id);
-            
-            fetch('/you-rang' )
+            let micUrl = event.target.id;
+
+            fetch('/' + micUrl)
                 .then(function(response) {
                     return response.json();
                 }).then(function(json) {

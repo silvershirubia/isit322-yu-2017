@@ -48,12 +48,12 @@ class DataMaven extends Component {
                 content: 'stuff'
             },
             gistList:[ {
-                "htmlUrl": 'foo',
-                "id": '',
-                "gitPullUrl": '',
-                "description": '',
-                "ownerLogin": '',
-                "avatarUrl":''
+                'htmlUrl': 'foo',
+                'id': '',
+                'gitPullUrl': '',
+                'description': '',
+                'ownerLogin': '',
+                'avatarUrl':''
             }],
             gistCanIterate: false
 
@@ -131,15 +131,15 @@ class DataMaven extends Component {
             }).then(function(json) {
             // DISPLAY WITH LOGGER AS NEEDED
             // PARSE THE JSON BODY INTO JS SINCE IT IS PROPABLY A STRING:
-            console.log("second" + json);
+            console.log('second' + json);
             logger.log('parsed json', json);
             const body = json.result;
             //let body = JSON.parse(json.result);
-            let test = JSON.stringify(body.files["file2.txt"]);
-            console.log("here" + test);
+            let test = JSON.stringify(body.files['file2.txt']);
+            console.log('here' + test);
 
             that.setState({
-                gitMDGist: body.files["file2.txt"]
+                gitMDGist: body.files['file2.txt']
             });
 
         }).catch(function(ex) {
@@ -197,7 +197,7 @@ console.log('enter');
     render() {
         return (
             <Router>
-                <div className="container">
+                <div className='container'>
                     <ElfHeader/>
                     <Route exact path='/'
                            render={(props) => (

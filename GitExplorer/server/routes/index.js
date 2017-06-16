@@ -30,9 +30,33 @@ router.get('/foo', function(request, response, next) {
     response.send(message);
 });
 
-router.get('/you-rang', function(request, response, next){
+router.get('/you-rang-qux', function(request, response, next){
 
     requester('http://' + address + ':30030/you-rang').pipe(response);
+    console.log('You calling from IP: ', address);
+});
+
+router.get('/you-rang-git', function(request, response, next){
+
+    requester('http://' + address + ':30031/you-rang').pipe(response);
+    console.log('You calling from IP: ', address);
+});
+
+router.get('/you-rang-gist', function(request, response, next){
+
+    requester('http://' + address + ':30032/you-rang').pipe(response);
+    console.log('You calling from IP: ', address);
+});
+
+router.get('/you-rang-markdown', function(request, response, next){
+
+    requester('http://' + address + ':30033/you-rang').pipe(response);
+    console.log('You calling from IP: ', address);
+});
+
+router.get('/you-rang-socket', function(request, response, next){
+
+    requester('http://' + address + ':30034/you-rang').pipe(response);
     console.log('You calling from IP: ', address);
 });
 

@@ -6,7 +6,7 @@
     "react/react-in-jsx-scope": "error",
     "no-console": "off",
     "indent": "warn",
-    "quotes": ["warn", "single"],
+    "quotes": ["error", "single"],
     "linebreak-style": ["error", "unix"],
     "semi": ["error", "always"]
   },

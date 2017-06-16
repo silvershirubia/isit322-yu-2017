@@ -61,40 +61,40 @@ gistDelete(){
     render() {
 
         return (
-            <div className="App">
+            <div className='App'>
 
                 <h2>Gist Lister</h2>
 
-                <Button bsStyle="info" id="gistList"
+                <Button bsStyle='info' id='gistList'
                         onClick={this.props.fetchGistList}
                         disabled={this.props.gistCanIterate}>Get Gist List</Button>
 
-                <Button id="prevGist"
+                <Button id='prevGist'
                         onClick={this.gistIterator}
                         enable={this.props.gistCanIterate}>Prev</Button>
 
-                <Button id="nextGist"
+                <Button id='nextGist'
                         onClick={this.gistIterator}
                         enable={this.props.gistCanIterate}>Next</Button>
 
-                <Button id="deleteGist"
+                <Button id='deleteGist'
                         onClick={this.gistDelete}
                         disable={this.props.gistCanIterate}>Delete</Button>
 
                 <h3>Gist at {this.state.index + 1} / {this.props.gistList.length}</h3>
                 <ul>
 
-                    <li>{this.props.gistList[this.state.index]["htmlUrl"]}</li>
-                    <li>{this.props.gistList[this.state.index]["description"]}</li>
-                    <li>{this.props.gistList[this.state.index]["id"]}</li>
-                    <li>{this.props.gistList[this.state.index]["url"]}</li>
-                    <li>{this.props.gistList[this.state.index]["ownerLogin"]}</li>
-                    <li>{this.props.gistList[this.state.index]["avatarUrl"]}</li>
+                    <li>{this.props.gistList[this.state.index]['htmlUrl']}</li>
+                    <li>{this.props.gistList[this.state.index]['description']}</li>
+                    <li>{this.props.gistList[this.state.index]['id']}</li>
+                    <li>{this.props.gistList[this.state.index]['url']}</li>
+                    <li>{this.props.gistList[this.state.index]['ownerLogin']}</li>
+                    <li>{this.props.gistList[this.state.index]['avatarUrl']}</li>
 
                 </ul>
 
-                <img className="elfImage" alt="img for avatar"
-                     src={this.props.gistList[this.state.index]["avatarUrl"]}/>
+                <img className='elfImage' alt='img for avatar'
+                     src={this.props.gistList[this.state.index]['avatarUrl']}/>
 
                 <ul></ul>
                 <ul></ul>

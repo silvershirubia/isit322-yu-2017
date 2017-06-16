@@ -10,9 +10,9 @@ const logger = new Debug(false);
 
 class ElfElements extends Component {
     constructor(props) {
-        logger.log("FORM INPUT", 'constructor called', props);
+        logger.log('FORM INPUT', 'constructor called', props);
         super(props);
-        logger.log("FORM PROPS", this.props);
+        logger.log('FORM PROPS', this.props);
     }
 
 
@@ -29,25 +29,25 @@ class ElfElements extends Component {
                 return (
                     <input
                         {...common}
-                        type="number"
+                        type='number'
                         value={this.props.value || new Date().getFullYear()}
                     />
                 );
 
             case 'paragraph':
                 return <p
-                    className="ElfFormParagraph"
+                    className='ElfFormParagraph'
                     id={this.props.id}
 
                     onChange={this.props.onChange}
                 >{this.props.value}</p>;
 
             case 'textarea':
-                return <textarea {...common} className="ElfFormInput" value={this.props.value} />;
+                return <textarea {...common} className='ElfFormInput' value={this.props.value}/>;
 
             case 'text': {
                 return <input
-                    className="ElfFormInput"
+                    className='ElfFormInput'
                     id={this.props.id}
                     value={this.props.value}
                     type={this.props.type}
@@ -56,7 +56,7 @@ class ElfElements extends Component {
             }
 
             default:
-                return <input {...common} type="text"/>;
+                return <input {...common} type='text'/>;
         }
     }
 }

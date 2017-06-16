@@ -91,8 +91,7 @@ const gistReducer = (state = gistState, action) => {
 
         case 'YOU-RANG':
             return Object.assign({}, state, {
-                getMicro: action.getMicro,
-                //url: action.Button.name
+                getMicro: action.getMicro
             });
 
         default:
