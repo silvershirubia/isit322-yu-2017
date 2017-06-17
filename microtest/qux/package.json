@@ -1,9 +1,10 @@
 {
   "name": "micro-first",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www",
+    "build": "node scripts/build.js"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

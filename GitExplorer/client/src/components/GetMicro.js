@@ -22,6 +22,7 @@ class GetMicro extends Component {
         return (
             <div className="App">
                 <h2>You Rang?</h2>
+                <h3>Only the you-rang from qux works on heroku because that's the only microservice that was put up</h3>
                 <button className="getMicro" id="you-rang-qux" onClick={this.props.getMicro}>You Rang Qux</button>
                 <button className="getMicro" id="you-rang-git" onClick={this.props.getMicro}>You Rang Git</button>
                 <button className="getMicro" id="you-rang-gist" onClick={this.props.getMicro}>You Rang Gist</button>

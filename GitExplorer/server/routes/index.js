@@ -32,7 +32,7 @@ router.get('/foo', function(request, response, next) {
 
 router.get('/you-rang-qux', function(request, response, next){
 
-    requester('http://' + address + ':30030/you-rang').pipe(response);
+    requester('https://qux-ms.herokuapp.com/you-rang').pipe(response);
     console.log('You calling from IP: ', address);
 });
 
